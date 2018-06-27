@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ProjectCard from "./ProjectCard";
-import './App.css';
-
+import ProjectCard from "./components/ProjectCard";
 
 class App extends Component {
   render() {
@@ -12,13 +10,11 @@ class App extends Component {
         <br/>
         <div className="flex flex-wrap container">
           <ProjectCard 
-            title="Best Nine (Downloads)" 
-            subtitle="Showcase the 9 most downloaded pictures of your profile" 
-            keyword="people" />
-          <ProjectCard 
-            title="Best Nine (Likes)" 
-            subtitle="Showcase the 9 most liked pictures of your profile"
-            keyword="heart" />
+            title="Best Nine" 
+            subtitle="Showcase the 9 most popular pictures of your profile"
+            path="/bestnine"
+            keyword="popular" />
+          
         </div>
       </div>
     );
