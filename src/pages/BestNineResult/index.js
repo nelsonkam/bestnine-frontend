@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import TileColumn from '../../components/TileColumns';
+import Message from '../../components/Message';
+
 class BestNineResult extends Component {
   state = {
     isLoading: true,
@@ -10,7 +13,7 @@ class BestNineResult extends Component {
 
   componentDidMount() {
     const {username} = this.props.match.params
-    axios.get("http://localhost:3030/api/bestnine/" + username)
+    axios.get("/api/bestnine/" + username)
       .then(({data}) => {
         this.setState({
           user: data.user,
@@ -62,18 +65,6 @@ class BestNineResult extends Component {
 
   }
 }
-const Message = ({message}) => (
-  <div className="flex justify-center items-center h-screen">
-    <p className="text-5xl font-bold mx-2">{message}</p>
-  </div>
-)
-const TileColumn = ({images, numberOfColumns, position}) => (
-  <div className="tile">
-    {images.filter((_, i) => (i - position) % numberOfColumns === 0).map((image, i) => (
-        <div className="p-2" key={i} >
-          <img src={image}  alt=""/>
-        </div>
-      ))}
-  </div>
-)
+
+
 export default BestNineResult;

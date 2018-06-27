@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class BestNine extends Component {
+class Index extends Component {
   state = {
     username: null,
     showError: false
@@ -17,7 +17,7 @@ class BestNine extends Component {
     return (
       <div className="flex flex-col items-center mx-4 justify-center" style={{marginTop: "15%"}}>
         <h1 className="text-5xl text-center">Best Nine</h1>
-        <p className="text-xl mt-2 text-center">Showcase the 9 most popular pictures of your profile</p>
+        <p className="text-xl mt-2 text-center">Showcase the 9 most popular pictures of your Unsplash profile</p>
         <div className="flex flex-wrap justify-center container mt-8 md:w-1/2">
           <input 
             onChange={(e) => this.setState({username: e.target.value}) }
@@ -32,4 +32,4 @@ class BestNine extends Component {
   }
 }
 
-export default BestNine;
+export default Index;
