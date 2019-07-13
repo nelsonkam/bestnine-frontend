@@ -13,7 +13,7 @@ class BestNineResult extends Component {
 
   componentDidMount() {
     const {username} = this.props.match.params
-    axios.get("/api/bestnine/" + username)
+    axios.get("https://bestnine-backend.letsjist.com/api/bestnine/" + username)
       .then(({data}) => {
         this.setState({
           user: data.user,
@@ -21,6 +21,7 @@ class BestNineResult extends Component {
           isLoading: false
         })
       }).catch((err) => {
+        console.log(err)
         this.setState({
           isLoading: false,
           error: err
@@ -40,7 +41,7 @@ class BestNineResult extends Component {
           <div className="mt-8 flex flex-col items-center">
             <img src={user.profile_image.large} className="h-32 w-32 rounded-full shadow" alt=""/>
             <p className="text-center text-2xl font-bold mt-3 mx-2">{user.name} (@{user.username})</p>
-            <p className="mt-1 text-lg text-center mx-2">{user.bio}</p>
+            <p className="mt-1 max-w-lg text-lg text-center mx-2">{user.bio}</p>
             <br/>
             <p className="text-3xl text-center font-bold mt-4">🌟 Best Nine Pictures 🌟</p>
             <div className="lg:flex md:hidden hidden justify-center flex-wrap mx-auto items-start mt-8">
